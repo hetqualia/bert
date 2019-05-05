@@ -267,7 +267,10 @@ def read_squad_examples(input_file, is_training):
           #raise ValueError(
           #"For training, each question should have exactly 1 answer.")
           if not is_impossible:
-            answer = qa["answers"][0]
+            if (len(qa["answers"]) != 1):
+                answer = {text="CANNOTANSWER", answer_start="-1"}
+            else:
+                answer = qa["answers"][0]
             orig_answer_text = answer["text"]
             answer_offset = answer["answer_start"]
             answer_length = len(orig_answer_text)
