@@ -272,7 +272,7 @@ def read_squad_examples(input_file, is_training):
                 answer["answer_start"]=-1
             else:
                 answer = qa["answers"][0]
-            orig_answer_text = answer["text"]
+            orig_answer_text = answer["text"].lower()
             answer_offset = answer["answer_start"]
             answer_length = len(orig_answer_text)
             start_position = char_to_word_offset[answer_offset]
