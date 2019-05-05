@@ -284,8 +284,9 @@ def read_squad_examples(input_file, is_training):
             #
             # Note that this means for training mode, every example is NOT
             # guaranteed to be preserved.
-            actual_text = " ".join(
+            actual_text1 = " ".join(
                 doc_tokens[start_position:(end_position + 1)])
+            actual_text = actual_text1.lower()
             cleaned_answer_text = " ".join(
                 tokenization.whitespace_tokenize(orig_answer_text))
             if actual_text.find(cleaned_answer_text) == -1:
