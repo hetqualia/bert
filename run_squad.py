@@ -269,7 +269,7 @@ def read_squad_examples(input_file, is_training):
           if not is_impossible:
             if (len(qa["answers"]) != 1):
                 answer["text"]="Cannotanswer"
-                answer["answer_start"]="-1"
+                answer["answer_start"]=-1
             else:
                 answer = qa["answers"][0]
             orig_answer_text = answer["text"]
